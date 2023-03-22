@@ -1,5 +1,5 @@
-# ArrayTins
-Essa é um projeto simples que implementa um ArrayList próprio a partir do ArrayList do pacote java.util.
+# java.unitins.utial
+Essa é um projeto simples que implementa um ArrayList, um LinkedList, uma Queue e uma Stack próprio a partir do pacote java.util.
 
-A classe conta com os métodos de add(), add(int index), addRecursivo(int index), remove(int index), size(), isEmpty() e get(int index).
-O método addRecursivo(int index) tem o mesmo comportamento que o método add(int index), mas foi implementado utilizando recursividade.
+As classes contam com os métodos de adicionar, remover, visuzalizar, ver o tamanho e se está vazio. Com exceção da Queue e da Stack, as demais contém os métodos
+de adicionar ou remover em lugares específicos.
