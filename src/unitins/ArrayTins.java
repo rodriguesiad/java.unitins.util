@@ -25,10 +25,8 @@ public class ArrayTins<T> {
         return result;
     }
 
-    // métodos que retornam boolean geralmente começam com is
     public boolean isEmpty() {
         return lastPosition == 0 ? true : false;
-        // é o mesmo que: return lastPosition == 0;
     }
 
     public int size() {
@@ -45,34 +43,7 @@ public class ArrayTins<T> {
         }
 
         T previousValue = array[position];
-        T newValue = null;
         array[position] = newElement;
-
-        lastPosition++;
-        if (lastPosition == array.length) {
-            resize();
-        }
-
-        for (int i = position + 1; i < lastPosition; i++) {
-            newValue = array[i];
-            array[i] = previousValue;
-            previousValue = newValue;
-        }
-    }
-
-    public void addRecursivo(int position, T newElement) {
-
-        if (position < 0) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        if (position > lastPosition) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-
-        T previousValue = array[position];
-        array[position] = newElement;
-
-        System.out.println(position + " " + lastPosition);
 
         if (position == lastPosition) {
             lastPosition++;
@@ -83,8 +54,7 @@ public class ArrayTins<T> {
             return;
         }
 
-        addRecursivo((++position), previousValue);
-
+        add((++position), previousValue);
     }
 
     public T remove(int position) {
@@ -96,10 +66,9 @@ public class ArrayTins<T> {
         }
 
         T oldElement = array[position];
-        array[position] = null;
 
-        for (int i = position; i < lastPosition; i++) {
-            array[position] = array[position + 1];
+        for (int i = position; i < size(); i++) {
+            array[i] = array[i + 1];
         }
 
         lastPosition--;
@@ -134,9 +103,6 @@ public class ArrayTins<T> {
         for (int position = 0; position < array.length; position++) {
             newArray[position] = array[position];
         }
-
-        // System.arraycopy(array, 0, newArray, 0, array.length); -> é o mesmo que o for
-        // acima
 
         array = newArray;
         System.gc();
