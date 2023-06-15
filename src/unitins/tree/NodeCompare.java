@@ -1,4 +1,4 @@
-package unitins;
+package unitins.tree;
 
 enum NodeCompare {
     BIGGER,
